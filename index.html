@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Charging | EV Charging Network</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+    <div class="logo">⚡ SmartCharging</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Stations</a>
+        <a href="#">Battery Swap</a>
+        <a href="#">Contact</a>
+        <a href="#" id="loginBtn">Login</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <!-- LEFT TEXT -->
+    <div class="hero-text">
+        <h1>charge your journey ⚡</h1>
+        <p>
+            Fast EV charging and smart battery swapping solutions 
+            designed for modern electric vehicles. Reliable, efficient, 
+            and built for the future.
+        </p>
+
+       <button onclick="goToStations()">Find Charging Station</button>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-image">
+
+        <!-- MAIN IMAGE -->
+        <img src="https://i.ibb.co/MDCsdyKF/image.jpg" alt="EV Charging">
+
+        <!-- FLOATING CARD -->
+        <div class="floating-card">
+            ⚡ 1200+ Stations <br>
+            🔋 Battery Swap Available
+        </div>
+
+    </div>
+
+</section>
+
+
+
+ 
+<!-- PARTNERS -->
+
+<section class="partners">
+
+<p>Trusted by EV partners and mobility companies</p>
+
+<div class="partner-logos">
+<span>Tesla</span>
+<span>BYD</span>
+<span>Tata EV</span>
+<span>ChargePoint</span>
+<span>Siemens</span>
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services">
+
+<h2>Our Services</h2>
+
+<div class="service-container">
+
+<div class="service-card">
+<h3>Ultra Fast Charging</h3>
+<p>
+Charge your EV up to 80% in minutes with our next generation
+high power charging stations.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Battery Exchange</h3>
+<p>
+Swap your EV battery instantly at Smart Charging battery
+exchange hubs and continue your journey without waiting.
+</p>
+</div>
+
+<div class="service-card">
+<h3>Smart Monitoring</h3>
+<p>
+Track charging status, battery health and station availability
+using our smart mobile platform.
+</p>
+</div>
+
+<div class="service-card">
+<h3>EV Maintenance</h3>
+<p>
+Our stations provide diagnostics and maintenance services
+for electric vehicles.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIAL -->
+
+<section class="testimonial">
+
+<div class="testimonial-image">
+<img src="images/ev-user.jpg" alt="Customer">
+</div>
+
+<div class="testimonial-text">
+
+<h2>What EV Drivers Say</h2>
+
+<p>
+“Smart Charging made long EV trips effortless. The battery swap
+stations save so much time and the charging network is reliable.”
+</p>
+
+<h4>— Daniel Cooper</h4>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact">
+
+<h2>Find Nearby Charging Stations ⚡</h2>
+
+<p>
+Join the future of electric mobility with Smart Charging stations
+available across the city.
+</p>
+<p id="bookingInfo"></p>
+
+<button>Contact Us</button>
+
+
+</section>
+<section class="stations">
+
+    <h2>Nearby Charging Stations ⚡</h2>
+
+    <div class="station-container">
+
+        <div class="station-card">
+            <h3>City Center Station</h3>
+            <p>Fast Charging • Available</p>
+              <button onclick="showDetails('City Center Station')">View Details</button>
+             <button onclick="bookSlot('City Center Station')">Book Slot</button> 
+        </div>
+
+        <div class="station-card">
+            <h3>Highway EV Hub</h3>
+            <p>Ultra Fast • 2 Slots Left</p>
+            <button onclick="showDetails('Highway EV Hub')">View Details</button>
+            <button onclick="bookSlot('Highway EV Hub')">Book Slot</button>
+        </div>
+
+        <div class="station-card">
+            <h3>Battery Swap Zone</h3>
+            <p>Instant Swap • Open</p>
+           <button onclick="showDetails('Battery Swap Zone')">View Details</button>
+           <button onclick="bookSlot('Battery Swap Zone')">Book Slot</button>
+        </div>
+       <div class="details-modal" id="detailsModal">
+
+    <div class="details-box">
+
+        <span id="closeDetails">&times;</span>
+
+        <h2 id="stationTitle">Station Name</h2>
+        <p>Select Service:</p>
+
+<select id="serviceType">
+    <option value="charging">Charging ⚡</option>
+    <option value="swap">Battery Swap 🔋</option>
+</select>
+
+<p id="priceDisplay">Price: ₹0</p>
+
+        <p>⚡ Fast Charging Available</p>
+        <p>🔋 Battery Swap Supported</p>
+        <p>📍 Location: Nearby City</p>
+        <p>⏱ Open: 24/7</p>
+
+    </div>
+
+</div> 
+
+    </div>
+
+</section>
+<section class="map">
+
+    <h2>Find Charging Stations on Map 🗺️</h2>
+
+    <iframe 
+        src="https://maps.google.com/maps?q=ev%20charging%20station&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        width="100%" 
+        height="400" 
+        style="border:0;">
+    </iframe>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>⚡ Smart Charging</h3>
+
+<p>Get updates about new EV stations</p>
+
+<input type="email" placeholder="Enter your email">
+
+<button class="subscribe">Subscribe</button>
+
+<div class="footer-links">
+
+<a href="#">About</a>
+<a href="#">Stations</a>
+<a href="#">Support</a>
+<a href="#">Privacy Policy</a>
+
+</div>
+
+<p class="copyright">
+© 2026 Smart Charging. All rights reserved.
+</p>
+
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="login-modal" id="loginModal">
+    <div class="login-box">
+
+        <span class="close-btn" id="closeBtn">&times;</span>
+
+        <h2>Login</h2>
+
+        <!-- EMAIL LOGIN -->
+        <input type="email" placeholder="Enter Email">
+
+        <!-- OR -->
+        <p class="or">OR</p>
+
+        <!-- MOBILE LOGIN -->
+        <input type="tel" placeholder="Enter Mobile Number">
+
+       <button onclick="loginUser()">Continue</button>
+    </div>
+</div>
+<<script>
+
+// LOGIN FUNCTION
+function loginUser() {
+
+    const email = document.querySelector("input[type=email]").value;
+    const phone = document.querySelector("input[type=tel]").value;
+
+    if (email === "" && phone === "") {
+        alert("Please enter Email or Mobile Number");
+        return;
+    }
+
+    localStorage.setItem("user", email || phone);
+
+    alert("Login Successful ✅");
+
+    document.getElementById("loginBtn").innerText = "Welcome 👤";
+    document.getElementById("loginModal").style.display = "none";
+
+    setTimeout(() => {
+        document.querySelector(".contact").scrollIntoView({
+            behavior: "smooth"
+        });
+    }, 200);
+}
+
+// GO TO STATIONS
+function goToStations() {
+
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first ⚡");
+        document.getElementById("loginModal").style.display = "flex";
+        return;
+    }
+
+    document.querySelector(".stations").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// SHOW DETAILS POPUP
+function showDetails(stationName) {
+
+    document.getElementById("stationTitle").innerText = stationName;
+    document.getElementById("detailsModal").style.display = "flex";
+}
+
+// BOOK SLOT
+function bookSlot(stationName) {
+
+    const user = localStorage.getItem("user");
+
+    if (!user) {
+        alert("Please login first ⚡");
+        document.getElementById("loginModal").style.display = "flex";
+        return;
+    }
+
+    const confirmBooking = confirm("Do you want to book at " + stationName + "?");
+
+    if (!confirmBooking) return;
+
+    const service = document.getElementById("serviceType").value;
+    const price = document.getElementById("priceDisplay").innerText;
+
+    localStorage.setItem("booking", stationName + " (" + service + ")");
+
+    alert("✅ Booking Confirmed!\n\n" + stationName + "\n" + price);
+}
+
+// AUTO LOAD
+window.onload = function () {
+
+    const user = localStorage.getItem("user");
+    const booking = localStorage.getItem("booking");
+
+    if (user) {
+        document.getElementById("loginBtn").innerText = "Hi, User 👋";
+    }
+
+    if (booking) {
+        document.getElementById("bookingInfo").innerText =
+            "Your booking: " + booking;
+    }
+};
+
+// PRICE CHANGE (SAFE VERSION)
+document.addEventListener("change", function (e) {
+
+    if (e.target.id === "serviceType") {
+
+        let price = e.target.value === "charging" ? 150 : 300;
+
+        document.getElementById("priceDisplay").innerText =
+            "Price: ₹" + price;
+    }
+});
+
+// CLOSE POPUP
+document.getElementById("closeDetails").onclick = () => {
+    document.getElementById("detailsModal").style.display = "none";
+};
+
+// LOGOUT
+function logout() {
+    localStorage.removeItem("user");
+    location.reload();
+}
+
+// LOGIN MODAL
+const loginBtn = document.getElementById("loginBtn");
+const loginModal = document.getElementById("loginModal");
+const closeBtn = document.getElementById("closeBtn");
+
+loginBtn.onclick = () => {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+        alert("You are already logged in ✅");
+    } else {
+        loginModal.style.display = "flex";
+    }
+};
+
+closeBtn.onclick = () => {
+    loginModal.style.display = "none";
+};
+
+window.onclick = (e) => {
+    if (e.target === loginModal) {
+        loginModal.style.display = "none";
+    }
+};
+
+</script>
